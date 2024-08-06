@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Drive Folders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Black background for the whole page */
+      color: #fff; /* White text color */
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #000; /* Black background for the content */
+      border-radius: 8px;
+      text-align: center; /* Center text and elements inside container */
+      color: #fff; /* White text color */
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .heading {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #fff; /* White color for headings */
+      font-weight: bold;
+    }
+
+    .section {
+      margin-bottom: 60px; /* Increased space between sections */
+    }
+
+    .links {
+      margin-bottom: 20px;
+    }
+
+    .links a {
+      display: block;
+      color: #0066cc;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .drive-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .drive-button {
+      width: 150px; /* Fixed width for buttons */
+      height: 40px; /* Fixed height for buttons */
+      padding: 10px;
+      margin: 5px;
+      background-color: #000; /* Black color for buttons */
+      color: white;
+      border: 1px solid #fff; /* White border for buttons */
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      text-align: center;
+      line-height: 20px; /* Center text vertically */
+      font-size: 14px; /* Font size for button text */
+    }
+
+    .drive-button:hover {
+      background-color: #333; /* Darker shade of black */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .drive-button.active {
+      background-color: #555; /* Slightly lighter black */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .drive-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- One Piece Logo -->
+  <div class="logo">
+    <img src="https://logos-world.net/wp-content/uploads/2021/09/One-Piece-Logo-700x394.png" alt="One Piece Logo" style="max-width: 100%; height: auto;">
+  </div>
+
+  <!-- Watch Online Section -->
+  <div class="section">
+    <div class="heading">Watch Online</div>
+    <div class="drive-buttons">
+      <button class="drive-button" id="w1" onclick="openURL('https://hianime.to/watch/one-piece-100?ep=2142')">HiAnime.to</button>
+      <button class="drive-button" id="w2" onclick="openURL('https://animesuge.to/anime/one-piece-903n/ep-1')">Animesuge.to</button>
+    </div>
+  </div>
+
+  <!-- Episode Guide Section -->
+  <div class="section">
+    <div class="heading">Episode Guide</div>
+    <div class="drive-buttons">
+      <button class="drive-button" id="g1" onclick="openURL('https://onepiece.fandom.com/wiki/Episode_Guide')">Onepiece Fandom</button>
+    </div>
+  </div>
+
+  <!-- Download Episodes Section -->
+  <div class="section">
+    <div class="heading">Download Episodes</div>
+    <div class="drive-buttons">
+      <button class="drive-button" id="drive1" onclick="openURL('https://drive.google.com/drive/folders/10BEd0dorbC8fSa_iN1bnZzvTrmDzDHr0#grid')">EP - 1 - 57</button>
+      <button class="drive-button" id="drive2" onclick="openURL('https://drive.google.com/drive/folders/1DfVTmneAgbYKnGXAaVZb9qsxIUEMcFlH#grid')">EP - 58 - 111</button>
+      <button class="drive-button" id="drive3" onclick="openURL('https://drive.google.com/drive/folders/12Hk_vTILiacMQh5QSKlS5B1PFEHm-AO2#grid')">EP - 112 - 169</button>
+      <button class="drive-button" id="drive4" onclick="openURL('https://drive.google.com/drive/folders/1tHXhcOmXIErm2-c8BxGwT8GViCQhAGxt#grid')">EP - 170 - 225</button>
+      <button class="drive-button" id="drive5" onclick="openURL('https://drive.google.com/drive/folders/1ZyYqyHPV4Z5vUAlKpzYvEZJ3FZtgg7rh#grid')">EP - 226 - 270</button>
+      <button class="drive-button" id="drive6" onclick="openURL('https://drive.google.com/drive/u/0/folders/1ayl6uKF2O8rhw_53sk6kIU3g43Ssp2wf#grid')">EP - 271 - 312</button>
+      <button class="drive-button" id="drive7" onclick="openURL('https://drive.google.com/drive/folders/1pBCIwI-COhdM-2MxzZvbPjwQyDIEz-vZ#grid')">EP - 313 - 352</button>
+      <button class="drive-button" id="drive16" onclick="openURL('https://drive.google.com/drive/u/0/folders/1flm8yVXujJaBWoYq9ugb-3ntMJBJBGl2#grid')">EP - 353 - 390</button>
+      <button class="drive-button" id="drive8" onclick="openURL('https://drive.google.com/drive/folders/1GFMzRr3uu_M0BAEKGYSj74JhuFOPvzjV#grid')">EP - 746 - 800</button>
+      <button class="drive-button" id="drive9" onclick="openURL('https://drive.google.com/drive/folders/12qplmRlEKRGgzhFTYywXs35UbqZyU9wV#grid')">EP - 801 - 850</button>
+      <button class="drive-button" id="drive10" onclick="openURL('https://drive.google.com/drive/folders/15vyl53fUDYaEbG2RcF3mJtdB83h2r-rx#grid')">EP - 851 - 890</button>
+      <button class="drive-button" id="drive11" onclick="openURL('https://drive.google.com/drive/folders/1LE9SUszzonj_k1kK2KG5uBy7bnNdLcRp#grid')">EP - 891 - 927</button>
+      <button class="drive-button" id="drive12" onclick="openURL('https://drive.google.com/drive/folders/1ry714fgDjEkbu_Q6KB9y0ce6Mfj27Wcj#grid')">EP - 928 - 960</button>
+      <button class="drive-button" id="drive13" onclick="openURL('https://drive.google.com/drive/folders/1ozPQ0XDMQid3CSF1Z31fbcB98ojFsjqk#grid')">EP - 961 - 990</button>
+      <button class="drive-button" id="drive14" onclick="openURL('https://drive.google.com/drive/folders/19ZJezRqaboTW7SmW5AMz8j7FU9lF4IUG#grid')">EP - 991 - 1022</button>
+      <button class="drive-button" id="drive15" onclick="openURL('https://drive.google.com/drive/folders/156y3DxdfEhWj-RU0whTbjC5uqIS4x-8w#grid')">EP - 1023 - 1055</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Function to open the specified drive folder in a new tab
+  function openURL(driveUrl) {
+    window.open(driveUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>
