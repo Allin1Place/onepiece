@@ -180,7 +180,7 @@
   <!-- Watch Online Section -->
   <div class="section">
     <div class="drive-buttons">
-      <button class="theme-toggle-button" onclick="toggleTheme()">White Mode</button>
+      <button class="theme-toggle-button" onclick="toggleTheme()">Light Mode</button>
     </div>
   </div>
 
@@ -962,7 +962,7 @@
     document.body.classList.toggle('light-theme');
     const themeToggleButton = document.querySelector('.theme-toggle-button');
     if (document.body.classList.contains('light-theme')) {
-      themeToggleButton.textContent = 'White Mode';
+      themeToggleButton.textContent = 'Light Mode';
     } else {
       themeToggleButton.textContent = 'Dark Mode';
     }
@@ -971,7 +971,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const themeToggleButton = document.querySelector('.theme-toggle-button');
     if (document.body.classList.contains('light-theme')) {
-      themeToggleButton.textContent = 'White Mode';
+      themeToggleButton.textContent = 'Light Mode';
     } else {
       themeToggleButton.textContent = 'Dark Mode';
     }
