@@ -24,6 +24,7 @@
       border-radius: 8px;
       text-align: center;
       color: #fff;
+      position: relative;
     }
 
     .logo {
@@ -64,8 +65,8 @@
       margin: 0 auto;
     }
 
-    .drive-button {
-      width: 150px;
+    .drive-button, .theme-toggle-button, .episode-button  {
+      width: 140px;
       height: 40px;
       padding: 10px;
       margin: 5px;
@@ -81,7 +82,7 @@
       font-size: 14px;
     }
 
-    .drive-button:hover {
+    .drive-button:hover, .theme-toggle-button:hover, .episode-button:hover {
       background-color: #333;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
@@ -92,22 +93,95 @@
       transform: scale(1.05);
     }
 
-    .drive-button:focus {
+    .drive-button:focus, .theme-toggle-button:focus, .episode-button:focus {
       outline: none;
     }
 
     .hidden {
       display: none;
     }
+
+    /* Light Theme */
+    body.light-theme {
+      background-color: #fff;
+      color: #000;
+    }
+
+    body.light-theme .container {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    body.light-theme .drive-button, body.light-theme .theme-toggle-button, body.light-theme .episode-button  {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+
+    body.light-theme .drive-button:hover, body.light-theme .theme-toggle-button:hover, body.light-theme .episode-button:hover {
+      background-color: #ddd;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    body.light-theme .heading {
+      color: #000;
+    }
+
+    .theme-toggle-button {
+      width: 100px;
+      height: 40px;
+      padding: 7px;
+      margin: 1px;
+      background-color: #000;
+      color: white;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+    }
+
+
+    .episode-button {
+      width: 170px;
+      height: 40px;
+      padding: 10px;
+      margin: 1px;
+      background-color: #000;
+      color: white;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      text-align: center;
+      line-height: 8px;
+      font-size: 16px;
+    }
+
   </style>
 </head>
 <body>
 
 <div class="container">
+
   <!-- One Piece Logo -->
   <div class="logo">
     <img src="https://logos-world.net/wp-content/uploads/2021/09/One-Piece-Logo-700x394.png" alt="One Piece Logo" style="max-width: 100%; height: auto;">
   </div>
+
+
+
+  <!-- Watch Online Section -->
+  <div class="section">
+    <div class="drive-buttons">
+      <button class="theme-toggle-button" onclick="toggleTheme()">Black theme</button>
+    </div>
+  </div>
+
 
   <!-- Watch Online Section -->
   <div class="section">
@@ -130,8 +204,9 @@
   <div id="download-episodes" class="section">
     <div class="heading">Download Episodes</div>
     <div class="drive-buttons">
-      <button class="drive-button" onclick="showSection('individual-episodes')">Individual Episodes</button>
+      <button class="episode-button" onclick="showSection('individual-episodes')">Individual Episodes</button>
     </div>
+    <div class="heading"></div>
     <div class="drive-buttons">
       <button class="drive-button" id="drive1" onclick="openURL('https://drive.google.com/drive/folders/10BEd0dorbC8fSa_iN1bnZzvTrmDzDHr0#grid')">EP - 1 - 57</button>
       <button class="drive-button" id="drive2" onclick="openURL('https://drive.google.com/drive/folders/1DfVTmneAgbYKnGXAaVZb9qsxIUEMcFlH#grid')">EP - 58 - 111</button>
@@ -154,10 +229,11 @@
 
   <!-- Download Individual Episodes Section -->
   <div id="individual-episodes" class="section hidden">
-    <div class="heading">Download Individual Episodes</div>
+    <div class="heading">Download Episodes</div>
     <div class="drive-buttons">
-      <button class="drive-button" onclick="showSection('download-episodes')">Back to Episodes</button>
+      <button class="episode-button" onclick="showSection('download-episodes')">Back to Collection</button>
     </div>
+    <div class="heading"></div>
     <div class="drive-buttons">
       <button class="drive-button" id="1" onclick="downloadFile('1vpo7CFD53vS-cXD2vf59zXKKUdIO9FgN')">OP - 001</button>
       <button class="drive-button" id="2" onclick="downloadFile('1uTgrZ6eJhPB1W0U-pGcsgZmYTpYYS4DL')">OP - 002</button>
@@ -857,6 +933,7 @@
       <button class="drive-button" id="1055" onclick="downloadFile('1cmDvf9ZuQc49ThoZrDvPISQ-mcf_AMda')">OP - 1055</button>
     </div>
   </div>
+  
 
 </div>
 
@@ -878,6 +955,25 @@
     // Show the selected section
     document.getElementById(sectionId).classList.remove('hidden');
   }
+
+  function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    const themeToggleButton = document.querySelector('.theme-toggle-button');
+    if (document.body.classList.contains('light-theme')) {
+      themeToggleButton.textContent = 'Black theme';
+    } else {
+      themeToggleButton.textContent = 'White theme';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleButton = document.querySelector('.theme-toggle-button');
+    if (document.body.classList.contains('light-theme')) {
+      themeToggleButton.textContent = 'Black theme';
+    } else {
+      themeToggleButton.textContent = 'White theme';
+    }
+  });
 </script>
 
 </body>
