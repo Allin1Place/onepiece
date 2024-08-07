@@ -146,7 +146,7 @@
 
 
     .episode-button {
-      width: 170px;
+      width: 250px;
       height: 40px;
       padding: 10px;
       margin: 1px;
@@ -159,7 +159,7 @@
       transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
       text-align: center;
       line-height: 8px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
   </style>
@@ -180,7 +180,7 @@
   <!-- Watch Online Section -->
   <div class="section">
     <div class="drive-buttons">
-      <button class="theme-toggle-button" onclick="toggleTheme()">Black theme</button>
+      <button class="theme-toggle-button" onclick="toggleTheme()">White Mode</button>
     </div>
   </div>
 
@@ -206,7 +206,7 @@
   <div id="download-episodes" class="section">
     <div class="heading">Download Episodes</div>
     <div class="drive-buttons">
-      <button class="episode-button" onclick="showSection('individual-episodes')">Individual Episodes</button>
+      <button class="episode-button" onclick="showSection('individual-episodes')">Click for Individual Episodes</button>
     </div>
     <div class="heading"></div>
     <div class="drive-buttons">
@@ -233,7 +233,7 @@
   <div id="individual-episodes" class="section hidden">
     <div class="heading">Download Episodes</div>
     <div class="drive-buttons">
-      <button class="episode-button" onclick="showSection('download-episodes')">Back to Collection</button>
+      <button class="episode-button" onclick="showSection('download-episodes')">Click for Collection of Episodes</button>
     </div>
     <div class="heading"></div>
     <div class="drive-buttons">
@@ -962,18 +962,18 @@
     document.body.classList.toggle('light-theme');
     const themeToggleButton = document.querySelector('.theme-toggle-button');
     if (document.body.classList.contains('light-theme')) {
-      themeToggleButton.textContent = 'Black theme';
+      themeToggleButton.textContent = 'White Mode';
     } else {
-      themeToggleButton.textContent = 'White theme';
+      themeToggleButton.textContent = 'Dark Mode';
     }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const themeToggleButton = document.querySelector('.theme-toggle-button');
     if (document.body.classList.contains('light-theme')) {
-      themeToggleButton.textContent = 'Black theme';
+      themeToggleButton.textContent = 'White Mode';
     } else {
-      themeToggleButton.textContent = 'White theme';
+      themeToggleButton.textContent = 'Dark Mode';
     }
   });
 </script>
