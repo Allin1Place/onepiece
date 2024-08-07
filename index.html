@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All In One Place</title>
+  <title>One Piece Episodes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000; /* Black background for the whole page */
-      color: #fff; /* White text color */
+      background-color: #000;
+      color: #fff;
     }
 
     .container {
@@ -19,10 +19,10 @@
       margin: 0 auto;
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #000; /* Black background for the content */
+      background-color: #000;
       border-radius: 8px;
-      text-align: center; /* Center text and elements inside container */
-      color: #fff; /* White text color */
+      text-align: center;
+      color: #fff;
     }
 
     .logo {
@@ -32,12 +32,12 @@
     .heading {
       font-size: 28px;
       margin-bottom: 20px;
-      color: #fff; /* White color for headings */
+      color: #fff;
       font-weight: bold;
     }
 
     .section {
-      margin-bottom: 60px; /* Increased space between sections */
+      margin-bottom: 60px;
     }
 
     .links {
@@ -64,29 +64,29 @@
     }
 
     .drive-button {
-      width: 150px; /* Fixed width for buttons */
-      height: 40px; /* Fixed height for buttons */
+      width: 150px;
+      height: 40px;
       padding: 10px;
       margin: 5px;
-      background-color: #000; /* Black color for buttons */
+      background-color: #000;
       color: white;
-      border: 1px solid #fff; /* White border for buttons */
+      border: 1px solid #fff;
       border-radius: 5px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
       text-align: center;
-      line-height: 20px; /* Center text vertically */
-      font-size: 14px; /* Font size for button text */
+      line-height: 20px;
+      font-size: 14px;
     }
 
     .drive-button:hover {
-      background-color: #333; /* Darker shade of black */
+      background-color: #333;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     .drive-button.active {
-      background-color: #555; /* Slightly lighter black */
+      background-color: #555;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       transform: scale(1.05);
     }
@@ -95,28 +95,8 @@
       outline: none;
     }
 
-    .episode-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .episode-list li {
-      margin: 10px 0;
-    }
-
-    .episode-list a {
-      text-decoration: none;
-      color: #0066cc;
-      font-size: 18px;
-    }
-
-    .episode-list a:hover {
-      text-decoration: underline;
-    }
-
-    .download-icon {
-      margin-left: 10px;
-      vertical-align: middle;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -146,8 +126,11 @@
   </div>
 
   <!-- Download Episodes Section -->
-  <div class="section">
+  <div id="download-episodes" class="section">
     <div class="heading">Download Episodes</div>
+    <div class="drive-buttons">
+      <button class="drive-button" onclick="showSection('individual-episodes')">Individual Episodes</button>
+    </div>
     <div class="drive-buttons">
       <button class="drive-button" id="drive1" onclick="openURL('https://drive.google.com/drive/folders/10BEd0dorbC8fSa_iN1bnZzvTrmDzDHr0#grid')">EP - 1 - 57</button>
       <button class="drive-button" id="drive2" onclick="openURL('https://drive.google.com/drive/folders/1DfVTmneAgbYKnGXAaVZb9qsxIUEMcFlH#grid')">EP - 58 - 111</button>
@@ -169,8 +152,11 @@
   </div>
 
   <!-- Download Individual Episodes Section -->
-  <div class="section">
+  <div id="individual-episodes" class="section hidden">
     <div class="heading">Download Individual Episodes</div>
+    <div class="drive-buttons">
+      <button class="drive-button" onclick="showSection('download-episodes')">Back to Episodes</button>
+    </div>
     <div class="drive-buttons">
       <button class="drive-button" id="1" onclick="downloadFile('1vpo7CFD53vS-cXD2vf59zXKKUdIO9FgN')">OP - 001</button>
       <button class="drive-button" id="2" onclick="downloadFile('1uTgrZ6eJhPB1W0U-pGcsgZmYTpYYS4DL')">OP - 002</button>
@@ -868,23 +854,28 @@
       <button class="drive-button" id="1053" onclick="downloadFile('1LJuWH6esTX-CwCQMQEadUElAr4SZFbPN')">OP - 1053</button>
       <button class="drive-button" id="1054" onclick="downloadFile('1ITedhOwAcONU0Nlsp7IYY3jZjuos1Stn')">OP - 1054</button>
       <button class="drive-button" id="1055" onclick="downloadFile('1cmDvf9ZuQc49ThoZrDvPISQ-mcf_AMda')">OP - 1055</button>
-
     </div>
   </div>
 
 </div>
 
 <script>
-  // Function to open the specified drive folder in a new tab
-  function openURL(driveUrl) {
-    window.open(driveUrl, '_blank');
+  function openURL(url) {
+    window.open(url, '_blank');
   }
 
-  // Function to download a specific file
   function downloadFile(fileId) {
-    const baseURL = 'https://drive.usercontent.google.com/download?id=';
-    const downloadURL = `${baseURL}${fileId}&export=download&authuser=0&confirm=0`;
-    window.location.href = downloadURL;
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    window.open(downloadUrl, '_blank');
+  }
+
+  function showSection(sectionId) {
+    // Hide all sections
+    document.getElementById('download-episodes').classList.add('hidden');
+    document.getElementById('individual-episodes').classList.add('hidden');
+
+    // Show the selected section
+    document.getElementById(sectionId).classList.remove('hidden');
   }
 </script>
 
