@@ -39,7 +39,7 @@
     }
 
     .section {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .links {
@@ -183,6 +183,22 @@
       border: 1px solid black;
     }
 
+
+    /* Copyright Styles */
+    .copyright {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 10px;
+    }
+
+    body:not(.light-theme) .copyright {
+      color: #fff;
+    }
+
+    body.light-theme .copyright {
+      color: #000;
+    }
+
   </style>
 
 </head>
@@ -257,6 +273,11 @@
       <button class="drive-button" id="EP-1023-1055" onclick="openGDriveURL('156y3DxdfEhWj-RU0whTbjC5uqIS4x-8w')">EP - 1023 - 1055</button>
     </div>
   </div>
+
+  <div class="copyright">
+    &copy; 2024 allin1place.github.io. All rights reserved.
+  </div>
+  
 
   <!-- Download Individual Episodes Section -->
   <div id="individual-episodes" class="section hidden">
@@ -1324,7 +1345,6 @@
 
     </div>
   </div>
-
 </div>
 
 <script>
